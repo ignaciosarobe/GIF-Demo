@@ -1,0 +1,60 @@
+{
+  "name": "xappia-rekognition-demo",
+  "version": "0.0.1",
+  "engines": {
+    "node": "8.1.4"
+  },
+  "private": true,
+  "scripts": {
+    "start": "node bin/app.js",
+    "build": "npm run buildbe && npm run buildfe",
+    "buildbe": "babel src -d bin",
+    "buildfe": "webpack --progress --colors --config webpack.config.js",
+    "dev": ". ./env && nodemon --config nodemon.json --exec babel-node src/app.js",
+    "devfe": "webpack --progress --colors --config webpack.config.js --watch",
+    "repl": "babel-node"
+  },
+  "dependencies": {
+    "animated_gif": "^1.0.2",
+    "aws-sdk": "^2.145.0",
+    "axios": "^0.17.0",
+    "babel-preset-env": "^1.6.1",
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "formdata-polyfill": "^2.0.4",
+    "gif.js.optimized": "^1.0.1",
+    "gifencoder": "^1.1.0",
+    "hbs": "^4.0.1",
+    "helmet": "^3.8.2",
+    "heroku-ssl-redirect": "0.0.4",
+    "merge-images": "^1.0.5",
+    "morgan": "~1.8.1",
+    "multer": "^1.3.0",
+    "nodemailer": "^4.4.0",
+    "nodemailer-express-handlebars": "^2.0.0",
+    "react": "^16.1.0",
+    "react-dom": "^16.1.0",
+    "serve-favicon": "~2.4.2",
+    "stream-to": "^2.0.0",
+    "stream-to-array": "^2.3.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.6",
+    "babel-cli": "^6.24.1",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "node-sass": "^4.6.0",
+    "nodemon": "^1.11.0",
+    "postcss-loader": "^2.0.8",
+    "precss": "^2.0.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "webpack": "^3.8.1"
+  }
+}
