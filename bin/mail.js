@@ -19,12 +19,12 @@ var _path2 = _interopRequireDefault(_path);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mailer = _nodemailer2.default.createTransport({
-  host: 'smtp.gmail.com',
-  port: 587,
+  host: process.env.SMTP_SERVER,
+  port: process.env.SMTP_PORT,
   secure: false, // upgrade later with STARTTLS
   auth: {
-    user: 'xappiamaid@gmail.com',
-    pass: 'zseqsc321'
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASSWORD
   }
 });
 
@@ -32,7 +32,7 @@ var options = {
   viewEngine: {
     extname: '.hbs',
     layoutsDir: _path2.default.join(__dirname, '../views/mail'),
-    defaultLayout: 'template',
+    defaultLayout: false,
     partialsDir: _path2.default.join(__dirname, '../views/mail')
   },
   viewPath: _path2.default.join(__dirname, '../views/mail'),

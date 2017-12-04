@@ -30,6 +30,8 @@ router.get('/gif/:id', function (req, res, next) {
   res.render('gif');
 });
 
+router.get('/test', _controller2.default.testmail);
+
 router.get('/api/sign-s3', _controller2.default.signS3);
 router.post('/api/email', _controller2.default.mail);
 

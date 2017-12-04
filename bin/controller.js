@@ -36,6 +36,10 @@ var _mail2 = require('./mail');
 
 var _mail3 = _interopRequireDefault(_mail2);
 
+var _url = require('url');
+
+var _url2 = _interopRequireDefault(_url);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var controller = {
@@ -88,16 +92,41 @@ var controller = {
     return signS3;
   }(),
   mail: function mail(req, res) {
+    var gif = _url2.default.parse(req.body.link);
+    gif = gif.path.replace('/', '');
+    console.log(gif);
     var mailparams = {
       from: 'Xappia',
       to: req.body.mail,
-      subject: 'Tu GIF!',
-      text: 'Aqu\xED tienes el gif! ' + req.body.link,
-      html: 'Aqui tienes el gif! <br><img src="' + req.body.link + '" alt=""/>',
-      attachDataUrls: false
+      subject: 'Tu GIF de Xappia!',
+      template: 'gif',
+      context: {
+        gif: gif
+      }
     };
     _mail3.default.sendMail(mailparams, function (err, info) {
       if (err) {
+        console.log(err);
+        res.status(500);
+        res.json(err.message);
+      }
+      console.log('email sent');
+      res.json(info);
+    });
+  },
+  testmail: function testmail(req, res) {
+    var mailparams = {
+      from: 'Xappia',
+      to: 'emmanuel.vazquez@xappia.com',
+      subject: 'Tu GIF de Xappia!',
+      template: 'gif',
+      context: {
+        gif: 'https://s3-us-west-2.amazonaws.com/xappia-demo/78cd091246a78f2b293c41db220919ac35021674.gif'
+      }
+    };
+    _mail3.default.sendMail(mailparams, function (err, info) {
+      if (err) {
+        console.log(err);
         res.status(500);
         res.json(err.message);
       }
