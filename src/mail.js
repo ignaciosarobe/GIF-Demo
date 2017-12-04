@@ -5,7 +5,7 @@ import path from 'path';
 const mailer = mail.createTransport({
   host: process.env.SMTP_SERVER,
   port: process.env.SMTP_PORT,
-  secure: false, // upgrade later with STARTTLS
+  secure: true, // upgrade later with STARTTLS
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASSWORD
