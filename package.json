@@ -36,6 +36,7 @@
     "nodemailer-express-handlebars": "^2.0.0",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
+    "request": "^2.83.0",
     "serve-favicon": "~2.4.2",
     "stream-to": "^2.0.0",
     "stream-to-array": "^2.3.0"
