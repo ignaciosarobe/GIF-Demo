@@ -16,6 +16,8 @@ router.get('/gif/:id', (req, res, next) => {
   res.render('gif');
 });
 
+router.get('/test', controller.testmail);
+
 router.get('/api/sign-s3', controller.signS3);
 router.post('/api/email', controller.mail);
 

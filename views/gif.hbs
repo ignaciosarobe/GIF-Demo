@@ -3,35 +3,35 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/manifest.json">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="/css/spectre.min.css">
-  <link rel="stylesheet" href="/css/spectre-exp.min.css">
-  <link rel="stylesheet" href="/css/spectre-icons.min.css">
-  <link rel="stylesheet" href="/css/main.css">
-  <meta property="og:url" content="https://www.your-domain.com/your-page.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Xappia GIF" />
-  <meta property="og:description" content="Watch how xappia changed my life" />
-  <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/xappia-demo/{{gif}}" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel=" apple-touch-icon " sizes="57x57 " href="/apple-icon-57x57.png ">
+  <link rel="apple-touch-icon " sizes="60x60 " href="/apple-icon-60x60.png ">
+  <link rel="apple-touch-icon " sizes="72x72 " href="/apple-icon-72x72.png ">
+  <link rel="apple-touch-icon " sizes="76x76 " href="/apple-icon-76x76.png ">
+  <link rel="apple-touch-icon " sizes="114x114 " href="/apple-icon-114x114.png ">
+  <link rel="apple-touch-icon " sizes="120x120 " href="/apple-icon-120x120.png ">
+  <link rel="apple-touch-icon " sizes="144x144 " href="/apple-icon-144x144.png ">
+  <link rel="apple-touch-icon " sizes="152x152 " href="/apple-icon-152x152.png ">
+  <link rel="apple-touch-icon " sizes="180x180 " href="/apple-icon-180x180.png ">
+  <link rel="icon " type="image/png " sizes="192x192 " href="/android-icon-192x192.png ">
+  <link rel="icon " type="image/png " sizes="32x32 " href="/favicon-32x32.png ">
+  <link rel="icon " type="image/png " sizes="96x96 " href="/favicon-96x96.png ">
+  <link rel="icon " type="image/png " sizes="16x16 " href="/favicon-16x16.png ">
+  <link rel="manifest " href="/manifest.json ">
+  <meta name="msapplication-TileColor " content="#ffffff ">
+  <meta name="msapplication-TileImage " content="/ms-icon-144x144.png ">
+  <meta name="theme-color " content="#ffffff ">
+  <link href="https://fonts.googleapis.com/css?family=Roboto " rel="stylesheet ">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons " rel="stylesheet ">
+  <link rel="stylesheet " href="/css/spectre.min.css ">
+  <link rel="stylesheet " href="/css/spectre-exp.min.css ">
+  <link rel="stylesheet " href="/css/spectre-icons.min.css ">
+  <link rel="stylesheet " href="/css/main.css ">
+  <meta property="og:url " content="https://www.your-domain.com/your-page.html " />
+  <meta property="og:type " content="website " />
+  <meta property="og:title " content="Xappia GIF " />
+  <meta property="og:description " content="Watch how xappia changed my life " />
+  <meta property="og:image " content="https://s3-us-west-2.amazonaws.com/xappia-demo/{{gif}} " />
   <title>Xappia: ¡GIF!</title>
 </head>
 
@@ -40,88 +40,26 @@
     You need to enable JavaScript to run this app.
   </noscript>
   <div class="container">
-    <center>
-      <div class="col-12">
-        <img class="img-responsive" src="https://s3-us-west-2.amazonaws.com/xappia-demo/{{gif}}" alt="">
+    <div id="center-img">
+      <img class="xappia-img" src="/img/gif_header.png" alt="">
+      <div id="gif-overlay">
+        <img class="xappia-img" id="gif-image" src="https://s3-us-west-2.amazonaws.com/xappia-demo/{{gif}}" alt="">
+        <img class="xappia-img" src="/img/gif_center.png" alt="">
       </div>
-      <div class="col-12 my-2">
-        <button id="download-gif" class="btn btn-primary tooltip" data-tooltip="Download GIF">
-          <span class="material-icons">file_download</span>
-        </button>
-        <button id="facebook-share" class="btn btn-primary tooltip" data-tooltip="Share on Facebook">
-          <i class="fa fa-facebook fa-lg"></i>
-        </button>
-        <button id="twitter-share" class="btn btn-primary tooltip" data-tooltip="Share on Twitter">
-          <i class="fa fa-twitter fa-lg"></i>
-        </button>
-        <button id="copy" class="btn btn-primary tooltip" data-tooltip="Copy Link">
-          <span class="material-icons">link</span>
-        </button>
-      </div>
-    </center>
+      <img class="xappia-img" src="/img/gif_footer.png" alt="">
+    </div>
   </div>
-  <script src="https://use.fontawesome.com/329e347ede.js"></script>
-  <div id="fb-root"></div>
-  <script>(function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=815877818571792';
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
   <script>
-    document.getElementById('facebook-share').onclick = () => {
-      FB.ui({
-        method: 'share',
-        display: 'popup',
-        href: window.location.href,
-      }, function (response) { });
-    }
-  </script>
-  <script>
-    const getWindowOptions = () => {
-      const width = 500;
-      const height = 350;
-      const left = (window.innerWidth / 2) - (width / 2);
-      const top = (window.innerHeight / 2) - (height / 2);
-
-      return [
-        'resizable,scrollbars,status',
-        'height=' + height,
-        'width=' + width,
-        'left=' + left,
-        'top=' + top,
-      ].join();
-    };
-
-    const twitterBTN = document.getElementById('twitter-share');
-    var text = encodeURIComponent('Hey everyone, come & see how #Xappia changed my life!');
-    var shareUrl = 'https://twitter.com/intent/tweet?url=' + window.location.href + '&text=' + text;
-    twitterBTN.href = shareUrl; // 1
-
-    twitterBTN.onclick = () => {
-      var win = window.open(shareUrl, 'ShareOnTwitter', getWindowOptions());
-      win.opener = null; // 2
-    }
-
-  </script>
-  <script>
-    document.getElementById('copy').onclick = () => {
-      const ta = document.createElement('textarea');
-      ta.value = window.location.href;
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand('copy');
-      ta.remove();
-    }
-  </script>
-  <script>
-    document.getElementById('download-gif').onclick = () => {
-      const link = document.createElement("a");
-      link.download = 'Xappia.gif';
-      link.href = 'https://s3-us-west-2.amazonaws.com/xappia-demo/{{gif}}';
-      link.click();
-    }
+    const children = [...document.getElementsByClassName('xappia-img')];
+    children.map((e) => {
+      e.onclick = () => {
+        console.log('asd');
+        const link = document.createElement("a");
+        link.download = 'Xappia.gif';
+        link.href = 'https://s3-us-west-2.amazonaws.com/xappia-demo/{{gif}}';
+        link.click();
+      }
+    });
   </script>
 
 </body>

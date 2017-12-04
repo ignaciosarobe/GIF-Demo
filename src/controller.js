@@ -3,6 +3,7 @@ import request from 'request';
 import toArray from 'stream-to-array';
 import crypto from 'crypto';
 import mail from './mail';
+import url from 'url';
 
 const controller = {
   async signS3(req, res) {
@@ -21,16 +22,42 @@ const controller = {
   },
 
   mail(req, res) {
+    let gif = url.parse(req.body.link);
+    gif = gif.path.replace('/', '');
+    console.log(gif);
     const mailparams = {
       from: 'Xappia',
       to: req.body.mail,
-      subject: 'Tu GIF!',
-      text: `Aquí tienes el gif! ${req.body.link}`,
-      html: `Aqui tienes el gif! <br><img src="${req.body.link}" alt=""/>`,
-      attachDataUrls: false
+      subject: 'Tu GIF de Xappia!',
+      template: 'gif',
+      context: {
+        gif
+      }
     };
     mail.sendMail(mailparams, function (err, info) {
       if (err) {
+        console.log(err);
+        res.status(500);
+        res.json(err.message);
+      }
+      console.log('email sent');
+      res.json(info);
+    });
+  },
+
+  testmail(req, res) {
+    const mailparams = {
+      from: 'Xappia',
+      to: 'emmanuel.vazquez@xappia.com',
+      subject: 'Tu GIF de Xappia!',
+      template: 'gif',
+      context: {
+        gif: 'https://s3-us-west-2.amazonaws.com/xappia-demo/78cd091246a78f2b293c41db220919ac35021674.gif'
+      }
+    };
+    mail.sendMail(mailparams, function (err, info) {
+      if (err) {
+        console.log(err);
         res.status(500);
         res.json(err.message);
       }

@@ -1,8 +1,8 @@
 {
-  "name": "xappia-rekognition-demo",
+  "name": "xappia-gif-demo",
   "version": "0.0.1",
   "engines": {
-    "node": "8.1.4"
+    "node": "9.x.x"
   },
   "private": true,
   "scripts": {

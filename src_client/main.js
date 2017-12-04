@@ -69,6 +69,14 @@ class App extends Component {
         await this.setState({
           photos: currentPhotos
         });
+        break;
+      case 8:
+        currentPhotos = this.state.photos;
+        currentPhotos.push(await mergeImages([photo, `${IMG_URL}${FILTERS[7]}`], FILTERS_OPTIONS[7]));
+        console.log(currentPhotos);
+        await this.setState({
+          photos: currentPhotos
+        });
         await this.createGIF();
         break;
     }
@@ -102,9 +110,16 @@ class App extends Component {
       });
 
       return Promise.all(loadingImages).then((images) => {
-        images.map((image) => {
+        images.map((image, i) => {
           ctx.drawImage(image, 0, 0);
-          encoder.addFrame(ctx, { copy: true, delay: 200 });
+          if (i === 0) {
+            encoder.addFrame(ctx, { copy: true, delay: 1000 });
+          } else if (i === 8) {
+            encoder.addFrame(ctx, { copy: true, delay: 1250 });
+          } else {
+            encoder.addFrame(ctx, { copy: true, delay: 200 });
+          }
+
         })
 
         encoder.on('finished', (blob) => {
@@ -145,8 +160,10 @@ class App extends Component {
               width: SIZE_OPTIONS_WIDTH,
               height: SIZE_OPTIONS_HEIGHT
             },
+            photosTaken: 0,
             gif: null,
-            isLoading: false
+            isLoading: false,
+            isWorking: false
           });
         }
       });
@@ -162,8 +179,10 @@ class App extends Component {
         return 'overlay-1'
       } else if (this.state.photosTaken === 1) {
         return 'overlay-2';
+      } else if (this.state.photosTaken === 2) {
+        return 'overlay-3'
       } else {
-        return 'overlay-3';
+        return 'overlay-4';
       }
     }
 
@@ -180,11 +199,11 @@ class App extends Component {
 
     const finished = () => {
       console.log(this.state.photos.length);
-      if (this.state.photos.length < 8) {
+      if (this.state.photos.length < 9) {
         return (
           <div>
             <div className="text-center">
-              <h3>{`${this.state.photosTaken}/3`}</h3>
+              <h3>{`${this.state.photosTaken}/4`}</h3>
               <div className="divider"></div>
               <Camera
                 options={this.state.video}

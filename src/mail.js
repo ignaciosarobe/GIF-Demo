@@ -3,12 +3,12 @@ import hbs from 'nodemailer-express-handlebars';
 import path from 'path';
 
 const mailer = mail.createTransport({
-  host: 'smtp.gmail.com',
-  port: 587,
+  host: process.env.SMTP_SERVER,
+  port: process.env.SMTP_PORT,
   secure: false, // upgrade later with STARTTLS
   auth: {
-    user: 'xappiamaid@gmail.com',
-    pass: 'zseqsc321'
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASSWORD
   }
 });
 
@@ -16,7 +16,7 @@ const options = {
   viewEngine: {
     extname: '.hbs',
     layoutsDir: path.join(__dirname, '../views/mail'),
-    defaultLayout: 'template',
+    defaultLayout: false,
     partialsDir: path.join(__dirname, '../views/mail')
   },
   viewPath: path.join(__dirname, '../views/mail'),
