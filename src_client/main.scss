@@ -142,50 +142,43 @@
     top: 527px;
 }
 
-/* iPads (portrait and landscape) ----------- */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-    #gif-image {
-        display: none;
+@media screen and (max-width: 400px) {
+    .gif-image {
+        top: 41.8%;
     }
 }
 
-/* iPads (landscape) ----------- */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-    #gif-image {
-        display: none;
+@media screen and (min-width: 401px) and (max-width: 720px) {
+    .gif-image {
+        top: 42.2%;
     }
 }
 
-/* iPads (portrait) ----------- */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-    #gif-image {
-        display: inherit;
-        right: -58px;
-        bottom: 43.8%;
+@media screen and (min-width: 721px) and (max-width: 1280px) {
+    .gif-image {
+        top: 42.3%;
     }
 }
 
-/* Desktops and laptops ----------- */
-@media only screen and (min-width: 1200px) {
-    #gif-image {
-        display: inherit;
-        right: -1px;
-        bottom: -105px;
+@media screen and (min-width: 1281px) and (max-width: 1440px) {
+    .gif-image {
+        top: 42.58%;
     }
 }
 
-/* Large screens ----------- */
-@media only screen and (min-width: 1400px) {
-    #gif-image {
-        display: inherit;
-        right: 1px;
-        bottom: 158px;
+@media screen and (min-width: 1441px) and (max-width: 1920px) {
+    .gif-image {
+        top: 42.58%;
     }
 }
 
-.xappia-img {
-    
+@media screen and (min-width: 1921px) {
+    .gif-image {
+        top: 42.58%;
+    }
 }
+
+.xappia-img {}
 
 .xappia-img:hover {
     cursor: pointer;
@@ -210,7 +203,8 @@
     display: block;
     position: absolute;
     background-color: blue;
-    top: 42.58%;
+
+    /* top: 42.58%; */
     left: 35.7%;
     width: 28.2% !important;
     height: 17.3%;
