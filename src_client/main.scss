@@ -107,18 +107,19 @@
     background-image: url("/img/3.png");
 }
 
-.overlay-4 {
-    @include overlay;
-    background-image: url('/img/8.png');
-}
-
 .overlay-3 {
     @include overlay;
 
     background-image: url("/img/6.png");
 }
 
-#center-img {
+.overlay-4 {
+    @include overlay;
+
+    background-image: url("/img/7.png");
+}
+
+/* #center-img {
     height: 100%;
     width: 100%;
     margin-left: auto;
@@ -126,7 +127,7 @@
     left: 0;
     right: 0;
     text-align: center;
-}
+} */
 
 #gif-image {
     position: absolute;
@@ -183,6 +184,20 @@
 }
 
 .xappia-img {
+    
+}
+
+.xappia-img:hover {
+    cursor: pointer;
+}
+
+.franja-container {
+    position: relative;
+    margin: 20px;
+}
+
+.franja-container img {
+    width: 100%;
     user-drag: none;
     user-select: none;
     -moz-user-select: none;
@@ -191,6 +206,12 @@
     -ms-user-select: none;
 }
 
-.xappia-img:hover {
-    cursor: pointer;
+.gif-image {
+    display: block;
+    position: absolute;
+    background-color: blue;
+    top: 42.58%;
+    left: 35.7%;
+    width: 28.2% !important;
+    height: 17.3%;
 }

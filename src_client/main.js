@@ -63,17 +63,18 @@ class App extends Component {
         currentPhotos = this.state.photos;
         currentPhotos = currentPhotos.concat(await Promise.all([
           mergeImages([photo, `${IMG_URL}${FILTERS[5]}`], FILTERS_OPTIONS[5]),
-          mergeImages([photo, `${IMG_URL}${FILTERS[6]}`], FILTERS_OPTIONS[6]),
-          mergeImages([photo, `${IMG_URL}${FILTERS[7]}`], FILTERS_OPTIONS[7])
+          mergeImages([photo, `${IMG_URL}${FILTERS[6]}`], FILTERS_OPTIONS[6])
         ]));
         await this.setState({
           photos: currentPhotos
         });
         break;
-      case 8:
+      case 7:
         currentPhotos = this.state.photos;
-        currentPhotos.push(await mergeImages([photo, `${IMG_URL}${FILTERS[7]}`], FILTERS_OPTIONS[7]));
-        console.log(currentPhotos);
+        currentPhotos = currentPhotos.concat(await Promise.all([
+          mergeImages([photo, `${IMG_URL}${FILTERS[6]}`], FILTERS_OPTIONS[6]),
+          mergeImages([photo, `${IMG_URL}${FILTERS[7]}`], FILTERS_OPTIONS[7])
+        ]));
         await this.setState({
           photos: currentPhotos
         });
