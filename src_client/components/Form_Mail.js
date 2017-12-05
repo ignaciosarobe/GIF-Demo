@@ -6,7 +6,7 @@ class FormMail extends Component {
     super(props);
     this.state = {
       email: '',
-      isValid: false
+      isValid: true
     }
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -15,7 +15,7 @@ class FormMail extends Component {
   handleChange(e) {
     this.setState({
       email: e.target.value,
-      isValid: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.state.email)
+      isValid: true
     });
   }
 
