@@ -61,7 +61,7 @@ var controller = {
 
             case 6:
               data = _context.sent;
-
+              
               res.json({
                 signedRequest: data,
                 url: 'https://' + process.env.S3_BUCKET + '.s3.amazonaws.com/' + params.Key

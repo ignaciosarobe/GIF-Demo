@@ -35,6 +35,7 @@ const controller = {
       }
     };
     mail.sendMail(mailparams, function (err, info) {
+      console.log("Error");
       if (err) {
         console.log(err);
         res.status(500);

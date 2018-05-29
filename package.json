@@ -2,7 +2,7 @@
   "name": "xappia-gif-demo",
   "version": "0.0.1",
   "engines": {
-    "node": "9.x.x"
+    "node": "8.x.x"
   },
   "private": true,
   "scripts": {

@@ -142,6 +142,7 @@ class App extends Component {
   async handleSubmit(email) {
     try {
       await this.setState({ isLoading: true }, async () => {
+        console.log("Log 1");
         const APIRequest = await axios.get('/api/sign-s3');
         const foto = await urltoFile(this.state.gif);
         const uploadResponse = await axios.put(APIRequest.data.signedRequest, foto,
