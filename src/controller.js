@@ -26,7 +26,7 @@ const controller = {
     gif = gif.path.replace('/', '');
     console.log(gif);
     const mailparams = {
-      from: 'Xappia',
+      from: 'concursos_ca@buenosaires.gob.ar',
       to: req.body.mail,
       subject: 'Tu GIF de Xappia!',
       template: 'gif',
