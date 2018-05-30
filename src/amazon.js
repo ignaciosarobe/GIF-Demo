@@ -1,8 +1,8 @@
 import AMAZON from 'aws-sdk';
 
 AMAZON.config.update({
-    accessKeyId: "AKIAINJUKIG4HGGK7B6A",
-    secretAccessKey: "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",
+    accessKeyId: "AKIAJ6KCD3U6IG2X3YGQ",
+    secretAccessKey: "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",
     "region": "us-east-1"
 });
 const AWS = new AMAZON.S3();

@@ -92,7 +92,7 @@ var controller = {
     gif = gif.path.replace('/', '');
     console.log(gif);
     var mailparams = {
-      from: 'Xappia',
+      from: process.env.FROM_MAIL,
       to: req.body.mail,
       subject: 'Tu GIF de Xappia!',
       template: 'gif',
