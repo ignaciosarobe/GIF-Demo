@@ -3,21 +3,12 @@ import hbs from 'nodemailer-express-handlebars';
 import path from 'path';
 
 const mailer = mail.createTransport({
-  /*
   host: process.env.SMTP_SERVER,
   port: process.env.SMTP_PORT,
   secure: false, // upgrade later with STARTTLS
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASSWORD
-  }
-  */
-  host: "smtp.gmail.com",
-  port: "587",
-  secure: false, // upgrade later with STARTTLS
-  auth: {
-    user: 'nachorsarobe@gmail.com',
-    pass: 'uljiloujilo'
   }
 });
 
