@@ -48,7 +48,7 @@ const controller = {
 
   testmail(req, res) {
     const mailparams = {
-      from: 'Xappia',
+      from: 'concursos_ca@buenosaires.gob.ar',
       to: 'emmanuel.vazquez@xappia.com',
       subject: 'Tu GIF de Xappia!',
       template: 'gif',

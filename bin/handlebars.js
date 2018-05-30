@@ -1,95 +1,63 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _hbs = require('hbs');
-
-var _hbs2 = _interopRequireDefault(_hbs);
-
-var _path = require('path');
-
-var _path2 = _interopRequireDefault(_path);
-
-var _fs = require('fs');
-
-var _fs2 = _interopRequireDefault(_fs);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+import hbs from 'hbs';
+import path from 'path';
+import fs from 'fs';
 
 /* Registramos los partials */
 
 /* Registramos los helpers */
-_hbs2.default.registerHelper('random', function () {
-  return Math.floor(Math.random() * 99999 + 1);
-});
-_hbs2.default.registerHelper('incremented', function (index) {
-  return ++index;
+hbs.registerHelper('random', () => Math.floor(Math.random() * 99999 + 1));
+hbs.registerHelper('incremented', index => ++index);
+
+hbs.registerHelper('multiply', (index, number) => ++index * number);
+
+hbs.registerHelper('for', (n, block) => {
+  let finalblock = '';
+  for (let i = 0; i < n; ++i) finalblock += block.fn(i);
+  return finalblock;
 });
 
-_hbs2.default.registerHelper('multiply', function (index, number) {
-  return ++index * number;
-});
+hbs.registerHelper('upperCase', text => text.toUpperCase());
 
-_hbs2.default.registerHelper('for', function (n, block) {
-  var finalblock = '';
-  for (var i = 0; i < n; ++i) {
-    finalblock += block.fn(i);
-  }return finalblock;
-});
+hbs.registerHelper('date-format-dmy', date => moment(date).utcOffset(0).format('DD-MM-YYYY'));
 
-_hbs2.default.registerHelper('upperCase', function (text) {
-  return text.toUpperCase();
-});
+hbs.registerHelper('date-format-dmyhms', date => moment(date).utcOffset(0).format('DD-MM-YYYY [a las] h:mm:ss a'));
 
-_hbs2.default.registerHelper('date-format-dmy', function (date) {
-  return moment(date).utcOffset(0).format('DD-MM-YYYY');
-});
-
-_hbs2.default.registerHelper('date-format-dmyhms', function (date) {
-  return moment(date).utcOffset(0).format('DD-MM-YYYY [a las] h:mm:ss a');
-});
-
-_hbs2.default.registerHelper('desde', function (inicio) {
-  var now = moment();
-  var inicioInscripcion = moment(inicio);
+hbs.registerHelper('desde', inicio => {
+  const now = moment();
+  const inicioInscripcion = moment(inicio);
   return now.isSameOrAfter(inicioInscripcion);
 });
 
-_hbs2.default.registerHelper('hasta', function (fin) {
-  var now = moment();
-  var finInscripcion = moment(fin);
+hbs.registerHelper('hasta', fin => {
+  const now = moment();
+  const finInscripcion = moment(fin);
   return now.isSameOrBefore(finInscripcion);
 });
 
-_hbs2.default.registerHelper('isFinished', function (fecha) {
-  var now = moment();
+hbs.registerHelper('isFinished', fecha => {
+  const now = moment();
   fecha = moment(fecha);
   return now.isSameOrAfter(fecha);
 });
 
-_hbs2.default.registerHelper('displayName', function (name, lastname) {
-  var nombre = name.split(' ')[0];
-  var apellido = lastname.split(' ');
+hbs.registerHelper('displayName', (name, lastname) => {
+  const nombre = name.split(' ')[0];
+  const apellido = lastname.split(' ');
 
-  return nombre + ' ' + apellido[0] + ' ' + (apellido[1] ? apellido[1] : '');
+  return `${nombre} ${apellido[0]} ${apellido[1] ? apellido[1] : ''}`;
 });
 
-_hbs2.default.registerHelper('fill', function (text) {
-  return text || '---';
-});
+hbs.registerHelper('fill', text => text || '---');
 
-_hbs2.default.registerHelper('cumplida', function (etapa) {
-  return etapa === 'Cumplida';
-});
+hbs.registerHelper('cumplida', etapa => etapa === 'Cumplida');
 
-exports.default = _hbs2.default;
-
+export default hbs;
 
 function addPartial(dir, name) {
   try {
-    _hbs2.default.registerPartial(name, _fs2.default.readFileSync(_path2.default.join(__dirname, '../views/' + dir + '/' + name + '.hbs'), 'utf-8'));
+    hbs.registerPartial(name, fs.readFileSync(path.join(__dirname, `../views/${dir}/${name}.hbs`), 'utf-8'));
     return true;
   } catch (e) {
     console.log(e);
