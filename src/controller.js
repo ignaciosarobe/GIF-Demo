@@ -12,7 +12,7 @@ const controller = {
       const data = await getSignedUrl(params);
       res.json({
         signedRequest: data,
-        url: `https://${process.env.S3_BUCKET}.s3.amazonaws.com/${params.Key}`
+        url: `https://xappia-gif.s3.amazonaws.com/${params.Key}`
       })
     } catch (e) {
       console.log(e);
@@ -71,7 +71,7 @@ const controller = {
 
 const getS3Params = async () => {
   return {
-    Bucket: process.env.S3_BUCKET,
+    Bucket: 'xappia-gif',
     Key: `${(await randomBytes(20)).toString('hex')}.gif`,
     Expires: 60,
     ContentEncoding: 'base64',

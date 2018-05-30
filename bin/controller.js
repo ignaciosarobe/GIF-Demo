@@ -66,7 +66,7 @@ var controller = {
 
               res.json({
                 signedRequest: data,
-                url: 'https://' + process.env.S3_BUCKET + '.s3.amazonaws.com/' + params.Key
+                url: 'https://xappia-gif.s3.amazonaws.com/' + params.Key
               });
               _context.next = 15;
               break;
@@ -92,7 +92,7 @@ var controller = {
     gif = gif.path.replace('/', '');
     console.log(gif);
     var mailparams = {
-      from: 'concursos_ca@buenosaires.gob.ar',
+      from: 'Xappia',
       to: req.body.mail,
       subject: 'Tu GIF de Xappia!',
       template: 'gif',
@@ -139,23 +139,22 @@ var getS3Params = function () {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            _context2.t0 = process.env.S3_BUCKET;
-            _context2.next = 3;
+            _context2.next = 2;
             return randomBytes(20);
 
-          case 3:
-            _context2.t1 = _context2.sent.toString('hex');
-            _context2.t2 = _context2.t1 + '.gif';
+          case 2:
+            _context2.t0 = _context2.sent.toString('hex');
+            _context2.t1 = _context2.t0 + '.gif';
             return _context2.abrupt('return', {
-              Bucket: _context2.t0,
-              Key: _context2.t2,
+              Bucket: 'xappia-gif',
+              Key: _context2.t1,
               Expires: 60,
               ContentEncoding: 'base64',
               ContentType: 'image/gif',
               ACL: 'public-read'
             });
 
-          case 6:
+          case 5:
           case 'end':
             return _context2.stop();
         }
