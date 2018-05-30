@@ -4,3 +4,4 @@ SMTP_PORT=25
 SMTP_USER=concursos_ca@buenosaires.gob.ar
 SMTP_PASSWORD=B4_h3hsw
 NODE_ENV=development
+FROM_MAIL=concursos_ca@buenosaires.gob.ar
