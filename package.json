@@ -27,6 +27,7 @@
     "formdata-polyfill": "^2.0.4",
     "gif.js.optimized": "^1.0.1",
     "gifencoder": "^1.1.0",
+    "handlebars": "^4.0.11",
     "hbs": "^4.0.1",
     "helmet": "^3.8.2",
     "heroku-ssl-redirect": "0.0.4",

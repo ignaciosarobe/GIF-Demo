@@ -26,7 +26,7 @@ const controller = {
     gif = gif.path.replace('/', '');
     console.log(gif);
     const mailparams = {
-      from: process.env.FROM_MAIL,
+      from: 'Xappia',
       to: req.body.mail,
       subject: 'Tu GIF de Xappia!',
       template: 'gif',
@@ -35,7 +35,6 @@ const controller = {
       }
     };
     mail.sendMail(mailparams, function (err, info) {
-      console.log("Error");
       if (err) {
         console.log(err);
         res.status(500);
