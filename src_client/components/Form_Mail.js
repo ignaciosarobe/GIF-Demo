@@ -33,7 +33,7 @@ class FormMail extends Component {
               <div className="column col-12 col-sm-12">
                 <div className="columns">
                   <div className="column col-8">
-                    <h2 className="text-center">Ingresá tu Emaillll</h2>
+                    <h2 className="text-center">Ingresá tu Email</h2>
                     <div className="form-group">
                       <label className="form-label text-left" htmlFor="name">Email</label>
                       <input className="form-input" type="email" value={this.state.email} onChange={this.handleChange} placeholder="Correo Electrónico" />

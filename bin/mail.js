@@ -1,8 +1,24 @@
-import mail from 'nodemailer';
-import hbs from 'nodemailer-express-handlebars';
-import path from 'path';
+'use strict';
 
-const mailer = mail.createTransport({
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _nodemailer = require('nodemailer');
+
+var _nodemailer2 = _interopRequireDefault(_nodemailer);
+
+var _nodemailerExpressHandlebars = require('nodemailer-express-handlebars');
+
+var _nodemailerExpressHandlebars2 = _interopRequireDefault(_nodemailerExpressHandlebars);
+
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mailer = _nodemailer2.default.createTransport({
   host: process.env.SMTP_SERVER,
   port: process.env.SMTP_PORT,
   secure: false, // upgrade later with STARTTLS
@@ -12,18 +28,18 @@ const mailer = mail.createTransport({
   }
 });
 
-const options = {
+var options = {
   viewEngine: {
     extname: '.hbs',
-    layoutsDir: path.join(__dirname, '../views/mail'),
+    layoutsDir: _path2.default.join(__dirname, '../views/mail'),
     defaultLayout: false,
-    partialsDir: path.join(__dirname, '../views/mail')
+    partialsDir: _path2.default.join(__dirname, '../views/mail')
   },
-  viewPath: path.join(__dirname, '../views/mail'),
+  viewPath: _path2.default.join(__dirname, '../views/mail'),
   extName: '.hbs'
 };
 
-mailer.use('compile', hbs(options));
+mailer.use('compile', (0, _nodemailerExpressHandlebars2.default)(options));
 
 mailer.verify(function (error, success) {
   if (error) {
@@ -33,4 +49,4 @@ mailer.verify(function (error, success) {
   }
 });
 
-export default mailer;
+exports.default = mailer;
